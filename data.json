@@ -1,0 +1,9 @@
+﻿[
+	{"value": "javascript"},
+	{"value": "nodejs", "selected": true},
+	{"value": "jQuery", "selected": true},
+	{"value": "mootools", "label": "mootools", "selected": true},
+	{"value": "css3", "label": "css3", "selected": true},
+	{"value": "html5", "label": "html5"},
+	{"value": "json", "selected": true}
+]
