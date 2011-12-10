@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />   
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/fonts.css" />
+		<link rel="stylesheet" href="css/MooMultiSelector.css" />
+		<script type="text/javascript" src="js/mootools-core-1.4.1.js"></script>
+		<script type="text/javascript" src="js/MooMultiSelector.js"></script>
+		<style type="text/css">
+			#demoList {
+				position: relative;
+				top: 20px;
+				left: 20px;
+			}
+			#demoList li.demoItem {
+				margin-bottom: 20px;
+			}
+			pre.code {
+				margin-top: 20px;
+			}
+		</style>
+	</head>
+<body>
+	<ul id="demoList">
+		<li class="demoItem">
+			<div id="con1">
+				<select name="tech" id="tech" multiple>
+					<option value="javascript" selected>javascript</option>
+					<option value="nodejs">nodejs</option>
+					<option value="mootools" selected>mootools</option>
+					<option value="json" selected>json</option>
+					<option value="jQuery">jQuery</option>
+					<option value="html">html</option>
+					<option value="php">php</option>
+					<option value="java">java</option>
+					<option value="apache">apache</option>
+					<option value="junit" selected>junit</option>
+				</select>
+			</div>
+			<button id="trans2Select">trans2Select</button>
+			<pre class="code">
+var selector1 = new MooMultiSelector({
+	container: 'con1',
+	local: true, //default value
+	prefix: 'one', 
+	from: 'tech', 
+	size: {
+		width: 302,
+		height: 32
+	},
+	onSelect: function(item) {
+		console.dir(item);
+	},
+	onUnselect: function(item) {
+		console.dir(item);
+	}
+});
+
+$('trans2Select').addEvent('click', function() {
+	selector1.trans2Select();
+});
+		</pre>
+		</li>
+		<li class="demoItem">
+			<div id="con2"></div>
+			<button id="get">get selected items</button>
+			<pre class="code">
+var selector2 = new MooMultiSelector({
+	container: 'con2',
+	local: true, //default value
+	prefix: 'two',
+	size: {
+		width: 302,
+		height: 32
+	},
+	data: [
+		{"value": "javascript"},
+		{"value": "nodejs", "selected": true},
+		{"value": "jQuery", "selected": true},
+		{"value": "mootools", "label": "mootools", "selected": true},
+		{"value": "css3", "label": "css3" },
+		{"value": "html5", "label": "html5"},
+		{"value": "json", "selected": true}
+	]
+});
+
+$('get').addEvent('click', function() {
+	console.dir(selector2.getSelected());
+});
+			</pre>
+		</li>
+		<li class="demoItem">
+			<div id="con3"></div>
+			<button id="load">load data</button>
+			<pre class="code">
+var selector3 = new MooMultiSelector({
+	container: 'con3',
+	local: false, 
+	prefix: 'three',
+	load: 'after',  
+	size: {
+		width: 302,
+		height: 32
+	},
+	remote: {
+		url: 'data.json',
+		secure: true,
+		onSuccess: function() {
+			console.log('load complete!');
+		}
+	}
+});
+
+$('load').addEvent('click', function() {
+	selector3.load();
+});
+			</pre>
+		</li>
+	</ul>
+	<script type="text/javascript">
+		var selector1 = new MooMultiSelector({
+			container: 'con1',
+			local: true, //default value
+			prefix: 'one', 
+			from: 'tech', 
+			size: {
+				width: 302,
+				height: 32
+			},
+			onSelect: function(item) {
+				console.dir(item);
+			},
+			onUnselect: function(item) {
+				console.dir(item);
+			}
+		});
+		
+		$('trans2Select').addEvent('click', function() {
+			selector1.trans2Select();
+		});
+		
+		var selector2 = new MooMultiSelector({
+			container: 'con2',
+			local: true, //default value
+			prefix: 'two',
+			size: {
+				width: 302,
+				height: 32
+			},
+			data: [
+				{"value": "javascript"},
+				{"value": "nodejs", "selected": true},
+				{"value": "jQuery", "selected": true},
+				{"value": "mootools", "label": "mootools", "selected": true},
+				{"value": "css3", "label": "css3" },
+				{"value": "html5", "label": "html5"},
+				{"value": "json", "selected": true}
+			]
+		});
+		
+		$('get').addEvent('click', function() {
+			console.dir(selector2.getSelected());
+		});
+		
+		var selector3 = new MooMultiSelector({
+			container: 'con3',
+			local: false, 
+			prefix: 'three',
+			load: 'after',  
+			size: {
+				width: 302,
+				height: 32
+			},
+			remote: {
+				url: 'data.json',
+				secure: true,
+				onSuccess: function() {
+					console.log('load complete!');
+				}
+			}
+		});
+		
+		$('load').addEvent('click', function() {
+			selector3.load();
+		});
+	</script>
+</body>
