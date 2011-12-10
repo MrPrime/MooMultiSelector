@@ -1,0 +1,76 @@
+.multi-input-panel-cls {
+	border-radius: 4px;
+}
+.multi-seled-wrapper-cls {
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.4) inset;
+	background: #fff;
+}
+.multi-seled-con-cls .multi-seled-item:link,
+.multi-seled-con-cls .multi-seled-item:visited {
+	background: #acacac;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 4px;
+}
+.multi-seled-con-cls .multi-seled-item span.close {
+	background: #555;
+	border-radius: 0 4px 4px 0;
+}
+.multi-seled-con-cls .multi-seled-item:hover span.close {
+	cursor: pointer;
+	text-decoration: underline;
+}
+.multi-seled-con-cls p.empty {
+	color: #545454;
+	padding-left: 4em;
+}
+.multi-seled-con-cls p.error {
+	color: #F70B19;
+	padding-left: 4em;
+}
+.multi-seled-con-cls p.loading {
+	color: #9CCF36;
+	padding-left: 4em;
+}
+
+.multi-drop-trigger-cls:link,
+.multi-drop-trigger-cls:visited {
+	color: #fff;
+	text-decoration: none;
+	background: -moz-linear-gradient(top, rgb(250,245,250) 0%, rgb(186,186,186) 100%);
+	background: -webkit-linear-gradient(top, rgb(250,245,250) 0%, rgb(186,186,186) 100%);
+	background: -o-linear-gradient(top, rgb(250,245,250) 0%, rgb(186,186,186) 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(enabled=true, startColorstr=#faf5fa, endColorstr=#bababa);
+}
+.multi-drop-trigger-cls:hover {
+	color: #326DBA;
+	background: -moz-linear-gradient(bottom, rgb(250,245,250) 0%, rgb(186,186,186) 100%);
+	background: -webkit-linear-gradient(top, rgb(250,245,250) 0%, rgb(186,186,186) 100%);
+	background: -o-linear-gradient(top, rgb(250,245,250) 0%, rgb(186,186,186) 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(enabled=true, startColorstr=#bababa, endColorstr=#faf5fa);
+}
+
+.multi-drop-panel-cls {
+	background: #fff;
+}
+.multi-drop-panel-cls .multi-drop-option {
+	padding: 3px 30px;
+	color: #333;
+	border-bottom: 1px solid #eee;
+	background: url(../image/unchecked.png) no-repeat 5px center;
+	cursor: pointer;
+}
+.multi-drop-panel-cls .multi-drop-option-selected {
+	background: url(../image/checked.png) no-repeat 5px center;
+}
+.multi-drop-panel-cls .multi-drop-option-hover {
+	background-color: #326DBA !important;
+	color: #fff;
+}
+.multi-drop-panel-cls .last-multi-drop-option {
+	border-bottom: 0;
+}
+
+.multi-data-loading {
+	background: url(../image/ajax-loader.gif) no-repeat 10px center;
+}
