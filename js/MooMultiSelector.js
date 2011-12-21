@@ -495,23 +495,27 @@
 			},
 			'class': 'close',
 			html: 'x'
-		})).addEvent('click:relay(span.close)', function(event, target) {
-			var aEl = target.getParent(),
+		})).addEvent('click', function(event) {
+			event.stop();
+			
+			var target = event.target, aEl = this,
 				index = aEl.get('data-index');
-		
-			// anchor deleted and restore corsponding item's state
-			self.dropPanel.getElement(' > ul li:nth-child(' + index + ')')
+				
+			if(target.tagName == 'SPAN' && target.className == 'close') {
+				// anchor deleted and restore corsponding item's state
+				self.dropPanel.getElement(' > ul li:nth-child(' + index + ')')
 					.removeClass('multi-drop-option-selected').store('selected', false);
-		
-			// compute selected items total length
-			self.seledCon.totalWidth -= (aEl.getSize().x + aEl.getStyle('margin-right').toInt());
 			
-			self.$fadeOutAndAdjust(aEl);
-			
-			// fire unselect event
-			var obj = {lable: aEl.get('title'), value: aEl.get('data-value')};
-			self.fireEvent('unselect',[obj, self]);
-		}).addEvent('click', function(event) { event.stop(); });
+				// compute selected items total length
+				self.seledCon.totalWidth -= (aEl.getSize().x + aEl.getStyle('margin-right').toInt());
+				
+				self.$fadeOutAndAdjust(aEl);
+				
+				// fire unselect event
+				var obj = {lable: aEl.get('title'), value: aEl.get('data-value')};
+				self.fireEvent('unselect',[obj, self]);
+			}
+		});
 		return newaEl;
 	},
 
