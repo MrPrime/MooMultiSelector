@@ -1,5 +1,7 @@
 ﻿MooMultiSelector is a mootools plugin for multi selecting, suppot IE7+, other modern browsers
 
+Note: I hope you normalize css first, like use reset.css or something like that.
+
 OPTIONS:
 container: render MultiSelector instance in it, id or an element
 
