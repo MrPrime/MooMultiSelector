@@ -1,21 +1,22 @@
-﻿# MooMultiSelector is a mootools plugin for multi selecting, suppot IE7+, other modern browsers
+﻿# MooMultiSelector is a mootools plugin for multi selecting
 
-> Note: I hope you normalize css first, like use reset.css or something like that.
+> suppot IE7+, other modern browsers
+
+**Note**: I hope you normalize css first, like use reset.css or something like that.
 
 ### OPTIONS:
-container: 
 
+**container**: 
 render MultiSelector instance in it, id or an element
 
-prefix: 
-
+**prefix**: 
 if more than one instances exist, each instance should be given an unique prefix to distinguish them, if you don't do that, probably will cause errors.
 	  
-from: data for selection can be initialized from a <select multiple>, id or element 
+**from**: 
+data for selection can be initialized from a `<select multiple>`, id or element 
 
-data: 
-
-json format array, if you wanna use local data and don't use a <select multiple> to init.
+**data**: 
+json format array, if you wanna use local data and don't use a `<select multiple>` to init.
 	  
 ```js
 	[
@@ -24,53 +25,50 @@ json format array, if you wanna use local data and don't use a <select multiple>
 	 	....
 	]
 ```
-> note: 'selected' default false, 'label' default the same as 'value' 
 
-size: 
-
+**size**: 
 apply to the container which decides MultiSelector's size. 
 
 ```js 
 	{width: 300, height: 40}
 ```
 
-dropMaxHeight: 
-
+**dropMaxHeight**: 
 drop panel's max height, if content's height larger than this, scrollbar appears 
 
-local: 
+**local**: 
 
-1.true : use local data to init MultiSelector.see 'from' or 'data'
-2.false: you should set 'remote' option to load data from server, only support json format, as 'data' option.
+- *true* : use local data to init MultiSelector.see `from` or `data`
+- *false*: you should set `remote` option to load data from server, only support json format, as `data` option.
 
-'remote' option is the same as options for mootools Request.JSON, so you can add some ajax callbacks as well. 
+`remote` option is the same as options for mootools Request.JSON, so you can add some ajax callbacks as well. 
 
-remote: 
-
-you should set 'local' as false first, then configure 'remote' option, or ajax won't work
+**remote**: 
+you should set `local` as false first, then configure `remote` option, or ajax won't work
 	 
-load: 
+**load**: 
 	
-1.'now': load data from server, when instance is initializing.
-2.'after': use instance.load() method to trigger load event whenever you like
+- *now*: load data from server, when instance is initializing.
+- *after*: use `instance.load()` method to trigger load event whenever you like
 	
-name: 
+**name**: 
 
-if you invoke trans2Select(), it will create an <select multiple> in container, the name is for it.maybe you want to submit a from, I guess. so you can get selected values in back end by its name
-----------------------------------------------------------------------------------------------
+if you invoke `trans2Select()`, it will create an `<select multiple>` in container, the name is for it.maybe you want to submit a from, I guess. so you can get selected values in back end by its name
+
 ### CALLBACKS:
-select: 
+
+**select**: 
 
 ```js
 function(item, instance) { //... } 
 ```
-unselect: 
+**unselect**: 
 
 ```js
 function(item, instance) { //... } 
 ```
 
-> note: item is an object 
+*note: item is an object like below* 
 
 ```js
 {label: 'javascript', value: 'javascript'}
@@ -78,22 +76,20 @@ function(item, instance) { //... }
 
 ### METHODS:
 
-load() : 
+**load()**: 
+it's useful, when you use ajax and set `load: "after"`, you can load data whenever you like
 
-it's useful, when you use ajax and set 'load' as 'after', you can load data whenever you like
-
-getSelected() : 
-
+**getSelected()**: 
 return selected items, like 
 
 ```js
 [{value: 'nodejs', label: 'nodejs'}, ....]
 ```
 
-trans2Select() : 
+**trans2Select()** : 
 
-create a <select multiple> in container, invoke it before you submit your form,if you use 'from' option, it will refresh selected options in the specified <select multiple>. and invoke it more than one time, it just does refresh.
+create a `<select multiple>` in container, invoke it before you submit your form,if you use `from` option, it will refresh selected options in the specified `<select multiple>`. and invoke it more than one time, it just does refresh.
 
-you can scroll forth and back when your mouse is in container to see all items you selected. 
+*you can scroll forth and back when your mouse is in container to see all items you selected.* 
 
-you can run demo.html to see more detail.     
+you can run **demo.html** to see more details.     
